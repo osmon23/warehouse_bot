@@ -50,8 +50,8 @@ async def start():
     dp.update.middleware.register(DbSession(pool_connect))
     dp.message.middleware.register(ExampleChatActionMiddleware())
 
-    # dp.startup.register(start_bot)
-    # dp.shutdown.register(stop_bot)
+    dp.startup.register(start_bot)
+    dp.shutdown.register(stop_bot)
 
     dp.message.register(get_start, CommandStart())
     dp.message.register(get_help, Command(commands='help'))
